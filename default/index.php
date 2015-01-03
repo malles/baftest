@@ -60,3 +60,28 @@ if (!$resultaat) {//als geen resource, fout weergeven
 	echo "<br/>Aantal records: " . $resultaat->num_rows;
 	echo '</pre>';
 }
+
+//tweede vraag kun je op hetzelfde db-object doen (`` zijn optioneel...)
+$sql2 = "SELECT persoon_id, `voornaam`, `achternaam`
+FROM `personenregister`
+WHERE `achternaam` LIKE 'Gelukkig'";
+
+//hetzelfde weer..
+$resultaat2 = $db->query($sql2);
+if (!$resultaat2) {//als geen resource, fout weergeven
+	echo "Fout: " . $db->error . "<br/>";
+} else {
+	echo '<pre>';
+	while($row = $resultaat2->fetch_assoc()){
+		//dit geeft de array weer om te testen
+		print_r($row);
+		//geef een waarde uit de array weer met br
+		echo $row['voornaam'] . '<br/>';
+		//maak een zin
+		echo 'Persoon ' . $row['voornaam'] . ' ' . $row['achternaam'] . ' heeft id ' . $row['persoon_id'] . '.<br/>';
+		//maak een zin zonder die irritante punten en aanhalingstekens (http://php.net/sprintf)
+		echo sprintf('Persoon %s %s heeft id %d.<br/>', $row['voornaam'], $row['achternaam'], $row['persoon_id']);
+	}
+	echo "<br/>Aantal records: " . $resultaat2->num_rows;
+	echo '</pre>';
+}
