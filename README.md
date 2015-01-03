@@ -22,6 +22,6 @@ _Doen_
 * Pak inhoud van de random dir in de zip uit in de rootmap. Overschijf de `.gitattributes`, `Vagrantfile` en `config.yaml`.
 * Time to `vagrant up`! Via windows console of PHPStorm. (vergeet de kop koffie niet!)
 * .....omnomnom....
-* De mappen `html` en `default` zijn aangemaakt. `html` is de map die de site is.
+* De mappen `html` en `default` zijn aangemaakt. `default` is de map die de site is.
 * Voeg regel `192.168.56.101 baftest.dev www.baftest.dev` toe aan `C:\Windows\System32\drivers\etc\hosts`
 * Ga naar `www.baftest.dev` in je browser, en watch the beast come alive.

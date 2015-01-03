@@ -90,14 +90,14 @@ apache:
             servername: baftest.dev
             serveraliases:
                 - www.baftest.dev
-            docroot: /var/www/html
+            docroot: /var/www/default
             port: '80'
             setenv:
                 - 'APP_ENV dev'
             directories:
                 bvgagbb62tac:
                     provider: directory
-                    path: /var/www/html
+                    path: /var/www/default
                     options:
                         - Indexes
                         - FollowSymlinks

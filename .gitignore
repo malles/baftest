@@ -12,9 +12,7 @@
 
 /puphpet/puppet/
 /puphpet/shell/
-/default
 /node_modules
-/sql
 
 profiling/
 tmp
