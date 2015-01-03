@@ -1,0 +1,21 @@
+#################
+## Custom
+#################
+
+.idea
+.vagrant
+
+/puphpet.zip
+/puphpet/files
+/!puphpet/files/*/empty
+/puphpet/files/dot/ssh
+
+/puphpet/puppet/
+/puphpet/shell/
+/default
+/node_modules
+/sql
+
+profiling/
+tmp
+
