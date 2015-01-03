@@ -56,6 +56,7 @@ if (!$resultaat) {//als geen resource, fout weergeven
 	while($row = $resultaat->fetch_assoc()){
 		print_r($row);
 	}
-	echo "<br/>Aantal records: " . mysqli_num_rows($resultaat);
+	//hier weer geen functie opvragen met resultaat, maar num_rows is property van het resultaat-object
+	echo "<br/>Aantal records: " . $resultaat->num_rows;
 	echo '</pre>';
 }
