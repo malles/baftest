@@ -1,12 +1,16 @@
 <?php
 /**
  * persoon.php - Bewerk persoon
+ *
  * @var array $data
  * @var array $persoon
- *
  */
 
 ?>
+
+<?php if ($_GET['msg'] == 'oke') : ?>
+    <div class="success">Persoon is succesvol opgeslagen!</div>
+<?php endif; ?>
 
 <h3><?php echo $persoon['voornaam']; ?> <?php echo $persoon['achternaam']; ?></h3>
 
