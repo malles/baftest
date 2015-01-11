@@ -85,3 +85,4 @@ if (!$resultaat2) {//als geen resource, fout weergeven
 	echo "<br/>Aantal records: " . $resultaat2->num_rows;
 	echo '</pre>';
 }
+

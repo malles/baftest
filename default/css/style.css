@@ -1,0 +1,46 @@
+/*algemeen*/
+.clear {
+    clear: both;
+}
+
+/*layout*/
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.header,
+.middle,
+.footer {
+    width: 100%
+}
+.menu {
+    float: left;
+    width: 20%
+}
+.content {
+    float: right;
+    width: 75%
+}
+.footer {
+    text-align: center;
+}
+
+/*style*/
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+h1 {
+    color: #00750b;
+}
+a {
+    color: #0c4429;
+    text-decoration: none;
+}
+a:hover {
+    color: #148456;
+    text-decoration: underline;
+}
+a.active {
+    font-weight: bold;
+}
