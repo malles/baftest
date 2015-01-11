@@ -9,11 +9,16 @@
  *
  */
 
+
 /**
  * @return mysqli
  */
 function getDatabase() {
-	$db = new mysqli('localhost', 'baf', 'plop0999', 'stamboom');
+	require_once 'config.php';
+	/**
+	 * @var array $config;
+	 */
+	$db = new mysqli($config['db_host'], $config['db_user'], $config['db_pass'], $config['db_database']);
 	return $db;
 }
 

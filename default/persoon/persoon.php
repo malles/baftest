@@ -11,8 +11,8 @@ require_once '../functions.php';
 $db = getDatabase();
 
 //variabelen uit request halen
-$persoon_id = $_GET['persoon_id'];
-if (!$persoon_id) {
+$persoon_auto_id = $_GET['persoon_auto_id'];
+if (!$persoon_auto_id) {
 	//bail out als niet compleet is.
 	die ("Geen persoon_id gegeven!");
 }
@@ -20,7 +20,7 @@ if (!$persoon_id) {
 //bereid de query voor //altijd ALTIJD escape_string gebruiken als je data invoegt in de query!
 $sql = "SELECT *
 FROM `personenregister`
-WHERE 'persoon_id' = " . $db->escape_string($persoon_id) . "
+WHERE `persoon_auto_id` = " . $db->escape_string($persoon_auto_id) . "
 LIMIT 0, 1;" ;
 
 //Data uit db halen en in data-object laden
