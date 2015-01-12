@@ -10,7 +10,7 @@ vagrantfile-local:
         network:
             private_network: 192.168.56.101
             forwarded_port:
-                yz0MtqahhbEU:
+                mbMhx94mhIyG:
                     host: '4567'
                     guest: '80'
         post_up_message: ''
@@ -32,7 +32,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            v7cwZa0tvqZL:
+            I7oUPDVDQMc5:
                 owner: www-data
                 group: www-data
                 source: ./
@@ -86,7 +86,7 @@ apache:
     modules:
         - rewrite
     vhosts:
-        p7gfbil6cdja:
+        vvis2vdygnkl:
             servername: baftest.dev
             serveraliases:
                 - www.baftest.dev
@@ -95,9 +95,35 @@ apache:
             setenv:
                 - 'APP_ENV dev'
             directories:
-                bvgagbb62tac:
+                pbtqh8f9esei:
                     provider: directory
                     path: /var/www/default
+                    options:
+                        - Indexes
+                        - FollowSymlinks
+                        - MultiViews
+                    allow_override:
+                        - All
+                    require:
+                        - all
+                        - granted
+                    custom_fragment: ''
+            engine: php
+            custom_fragment: ''
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_chain: ''
+            ssl_certs_dir: ''
+        wdihbwitouyn:
+            servername: stamboom.dev
+            serveraliases:
+                - www.stamboom.dev
+            docroot: /var/www/stamboom
+            port: '80'
+            directories:
+                wqh8vraby4d6:
+                    provider: directory
+                    path: ''
                     options:
                         - Indexes
                         - FollowSymlinks
@@ -185,7 +211,7 @@ drush:
 ruby:
     install: '1'
     versions:
-        8Q0U3Y9qWXVh:
+        Ya4FgHmNgUxc:
             version: ''
 nodejs:
     install: '1'
@@ -195,7 +221,7 @@ python:
     install: '1'
     packages: {  }
     versions:
-        fgGebD66siws:
+        Va3QOIhv5pUP:
             version: ''
 mysql:
     install: '1'
@@ -203,7 +229,7 @@ mysql:
     root_password: plop0999
     adminer: 0
     databases:
-        j1DPlaxGFRB7:
+        SEjsZIzMZJtj:
             grant:
                 - ALL
             name: stamboom
