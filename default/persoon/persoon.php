@@ -43,6 +43,22 @@ $data = array();
 $data['title'] = 'Bewerken persoon ' . $persoon['voornaam'] . ' ' . $persoon['achternaam'];
 $data['view'] = 'persoon';
 
+//data voor dropdown ophalen en voorbereiden
+$sql = "SELECT persoon_auto_id, persoon_id, voornaam, achternaam
+FROM `personenregister`
+WHERE `persoon_auto_id` NOT IN (" . $persoon['persoon_auto_id'] . ")
+ORDER BY achternaam ASC;" ;
+//Data uit db halen en in data-object laden
+$pulldownData = $db->query($sql);
+//data bewerken zodat het in tempalte makkelijk te laden is
+$pulldownOpties = array();
+while($row = $pulldownData->fetch_assoc()){
+	//voor elke auto-id wordt een key aangemaakt in de array, waar de samengestelde string met tekst als waarde in gezet wordt
+	$pulldownOpties[$row['persoon_auto_id']] = $row['persoon_id'] . ' - ' .$row['voornaam'] . ' ' . $row['achternaam'];
+}
+//de uiteindelijke array met auto-id's en teksten voor pulldown koppelen aan data-array voor template.
+$data['pulldownOptiesPersonen'] = $pulldownOpties;
+
 //template includen
 include '../template/template.php';
 

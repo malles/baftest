@@ -51,16 +51,19 @@ if ($isNew) {
 	$sql = "INSERT INTO `personenregister` (
 			`voornaam`,
 			`achternaam`,
+			`partner_id`,
 			`geboorteplaats`
 		) VALUES (
 			'" . $db->escape_string($formdata['voornaam']) . "',
 			'" . $db->escape_string($formdata['achternaam']) . "',
+			'" . $db->escape_string($formdata['partner_id']) . "',
 			'" . $db->escape_string($formdata['geboorteplaats']) . "'
 		)";
 } else {
 	$sql = "UPDATE `personenregister` SET
 	`voornaam` = '" . $db->escape_string($formdata['voornaam']) . "',
 	`achternaam` = '" . $db->escape_string($formdata['achternaam']) . "',
+	`partner_id` = '" . $db->escape_string($formdata['partner_id']) . "',
 	`geboorteplaats` = '" . $db->escape_string($formdata['geboorteplaats']) . "'
 	WHERE `persoon_auto_id` = " . $db->escape_string($formdata['persoon_auto_id']) . ";";
 }
