@@ -47,6 +47,7 @@ $data['view'] = 'persoon';
 $sql = "SELECT persoon_auto_id, persoon_id, voornaam, achternaam
 FROM `personenregister`
 WHERE `persoon_auto_id` NOT IN (" . $persoon['persoon_auto_id'] . ")
+AND (`partner_id` = 0 OR `partner_id` = " . $persoon['persoon_auto_id'] . ")
 ORDER BY achternaam ASC;" ;
 //Data uit db halen en in data-object laden
 $pulldownData = $db->query($sql);
