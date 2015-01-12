@@ -15,7 +15,7 @@ $formdata = $_POST['form']; //omdat ik in het form de inputs allemaal de naam 'f
 
 //data valideren
 $errors = array();
-if (empty($formdata['voorrnaam'])) {
+if (empty($formdata['voornaam'])) {
 	$errors[] = 'Voornaam is verplicht';
 }
 if (empty($formdata['achternaam'])) {
@@ -37,12 +37,27 @@ if (count($errors) > 0) {
 	include '../template/template.php';
 	exit();
 }
+$isNew = $formdata['persoon_auto_id'] == 0; //als het id 0 is, is hij nieuw!
+
 //de query wordt wat ingewikkelder nu.. kan later vast makkelijker
-$sql = "UPDATE `personenregister` SET
-	`voornaam` = '" . $formdata['voornaam'] . "',
-	`achternaam` = '" . $formdata['achternaam'] . "',
-	`geboorteplaats` = '" . $formdata['geboorteplaats'] . "'
-WHERE `persoon_auto_id` = ".$formdata['persoon_auto_id'].";";
+
+if ($isNew) {
+	$sql = "INSERT INTO `personenregister` (
+			`voornaam`,
+			`achternaam`,
+			`geboorteplaats`
+		) VALUES (
+			'" . $db->escape_string($formdata['voornaam']) . "',
+			'" . $db->escape_string($formdata['achternaam']) . "',
+			'" . $db->escape_string($formdata['geboorteplaats']) . "'
+		)";
+} else {
+	$sql = "UPDATE `personenregister` SET
+	`voornaam` = '" . $db->escape_string($formdata['voornaam']) . "',
+	`achternaam` = '" . $db->escape_string($formdata['achternaam']) . "',
+	`geboorteplaats` = '" . $db->escape_string($formdata['geboorteplaats']) . "'
+	WHERE `persoon_auto_id` = " . $db->escape_string($formdata['persoon_auto_id']) . ";";
+}
 
 //Data uit db halen en in data-object laden
 $dbResult = $db->query($sql);
