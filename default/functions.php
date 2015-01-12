@@ -8,13 +8,18 @@
  *  @copyright Copyright (C)2015 Bixie.nl
  *
  */
+//altijd de config laden, zodat variabele $config beschikbaar is
+/**
+ * @var array $config;
+ */
+include 'config.php';
 
 
 /**
  * @return mysqli
  */
 function getDatabase() {
-	require_once 'config.php';
+	include 'config.php';
 	/**
 	 * @var array $config;
 	 */

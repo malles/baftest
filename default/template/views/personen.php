@@ -41,6 +41,8 @@
 
 
 <?
-echo '<pre>';
-print_r($personenData);
-echo '</pre>';
+if ($config['debug'] == true) {
+	echo '<pre>';
+	print_r($personenData);
+	echo '</pre>';
+}

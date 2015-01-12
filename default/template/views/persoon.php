@@ -48,8 +48,8 @@
 	<button type="submit">Versturen</button>
 </form>
 <?
-echo '<pre>';
-print_r($persoon);
-echo '</pre>';
-
-
+if ($config['debug'] == true) {
+	echo '<pre>';
+	print_r($persoon);
+	echo '</pre>';
+}
