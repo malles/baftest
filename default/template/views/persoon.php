@@ -28,8 +28,8 @@
 <?php endif; ?>
 
 <form name="input" action="/persoon/persoonwijzigen.php" method="post">
-	Voornaam: <input type="text" name="form[voornaam]" value="<?php echo $persoon['voornaam']; ?>"/> <br/>
-	Achternaam: <input type="text" name="form[achternaam]" value="<?php echo $persoon['achternaam']; ?>"/> <br/>
+	Voornaam *: <input type="text" name="form[voornaam]" value="<?php echo $persoon['voornaam']; ?>"/> <br/>
+	Achternaam *: <input type="text" name="form[achternaam]" value="<?php echo $persoon['achternaam']; ?>"/> <br/>
 	Geboorteplaats: <input type="text" name="form[geboorteplaats]" value="<?php echo $persoon['geboorteplaats']; ?>"/> <br/>
 
 	<input type="hidden" name="form[persoon_auto_id]" value="<?php echo $persoon['persoon_auto_id']; ?>"/>
