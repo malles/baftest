@@ -8,7 +8,7 @@
 
 ?>
 
-<?php if ($_GET['msg'] == 'oke') : ?>
+<?php if (isset($_GET['msg']) && $_GET['msg'] == 'oke') : ?>
     <div class="success">Persoon is succesvol opgeslagen!</div>
 <?php endif; ?>
 
