@@ -10,7 +10,7 @@
 
 <h3>Toevoegen</h3>
 
-<?php if (count($data['errors'])) : ?>
+<?php if (!empty($data['errors'])) : ?>
 	<ul class="error">
 	<?php foreach ($data['errors'] as $error) : ?>
 		<li class="error"><?php echo $error; ?></li>

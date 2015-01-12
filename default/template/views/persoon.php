@@ -19,6 +19,13 @@
 	Geboorteplaats: <?php echo $persoon['geboorteplaats']; ?><br/>
 
 <h3>Bewerken</h3>
+<?php if (!empty($data['errors'])) : ?>
+	<ul class="error">
+		<?php foreach ($data['errors'] as $error) : ?>
+			<li class="error"><?php echo $error; ?></li>
+		<?php endforeach; ?>
+	</ul>
+<?php endif; ?>
 
 <form name="input" action="/persoon/persoonwijzigen.php" method="post">
 	Voornaam: <input type="text" name="form[voornaam]" value="<?php echo $persoon['voornaam']; ?>"/> <br/>
