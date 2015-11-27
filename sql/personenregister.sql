@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `personenregister` (
   `broerzus2` int(11) NOT NULL,
   `toevoegen` text NOT NULL,
   PRIMARY KEY (`persoon_auto_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3;
 
 --
 -- Gegevens worden uitgevoerd voor tabel `personenregister`
