@@ -13,7 +13,7 @@ $db = getDatabase();
 //variabelen uit de post halen
 $formdata = $_POST['form']; //omdat ik in het form de inputs allemaal de naam 'form[veldnaam]' heb gegeven, staat alles in 1 array die 'form' heet
 
-$isNew = $formdata['persoon_auto_id'] == 0; //als het id 0 is, is hij nieuw!
+$isNew = $formdata['persoon_id'] == 0; //als het id 0 is, is hij nieuw!
 //data valideren
 	$errors = array();
 	if (empty($formdata['voornaam'])) {
@@ -65,7 +65,7 @@ if ($isNew) {
 	`achternaam` = '" . $db->escape_string($formdata['achternaam']) . "',
 	`partner_id` = '" . $db->escape_string($formdata['partner_id']) . "',
 	`geboorteplaats` = '" . $db->escape_string($formdata['geboorteplaats']) . "'
-	WHERE `persoon_auto_id` = " . $db->escape_string($formdata['persoon_auto_id']) . ";";
+	WHERE `persoon_id` = " . $db->escape_string($formdata['persoon_id']) . ";";
 }
 
 //Data uit db halen en in data-object laden
@@ -77,11 +77,11 @@ if (!$dbResult) {//als geen resource, fout weergeven
 }
 //id van de laatste toevoeging opvragen uit db
 if ($db->insert_id) {
-	$formdata['persoon_auto_id'] = $db->insert_id;
+	$formdata['persoon_id'] = $db->insert_id;
 }
 
 //alles goed, doorsturen naar de view-weergave
-$link = ' /persoon/persoon.php?persoon_auto_id=' . $formdata['persoon_auto_id'];
+$link = ' /persoon/persoon.php?persoon_id=' . $formdata['persoon_id'];
 //voorlopig melding meegeven in url, komt later in sessie
 $link .= '&msg=oke';
 header('Location: ' . $link);

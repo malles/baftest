@@ -11,8 +11,8 @@ require_once '../functions.php';
 $db = getDatabase();
 
 //variabelen uit request halen
-$persoon_auto_id = $_GET['persoon_auto_id'];
-if (!$persoon_auto_id) {
+$persoon_id = $_GET['persoon_id'];
+if (!$persoon_id) {
 	//bail out als niet compleet is.
 	die ("Geen persoon_id gegeven!");
 }
@@ -20,8 +20,8 @@ if (!$persoon_auto_id) {
 //bereid de query voor //altijd ALTIJD escape_string gebruiken als je data invoegt in de query!
 $sql = "SELECT *
 FROM `personenregister`
-WHERE `persoon_auto_id` = " . $db->escape_string($persoon_auto_id) . "
-LIMIT 0, 1;" ;
+WHERE `persoon_id` = " . $db->escape_string($persoon_id) . "
+LIMIT 0, 1;";
 
 //Data uit db halen en in data-object laden
 $persoonData = $db->query($sql);
@@ -44,10 +44,10 @@ $data['title'] = 'Bewerken persoon ' . $persoon['voornaam'] . ' ' . $persoon['ac
 $data['view'] = 'persoon';
 
 //data voor dropdown ophalen en voorbereiden
-$sql = "SELECT persoon_auto_id, persoon_id, voornaam, achternaam
+$sql = "SELECT persoon_id, persoon_id, voornaam, achternaam
 FROM `personenregister`
-WHERE `persoon_auto_id` NOT IN (" . $persoon['persoon_auto_id'] . ")
-AND (`partner_id` = 0 OR `partner_id` = " . $persoon['persoon_auto_id'] . ")
+WHERE `persoon_id` NOT IN (" . $persoon['persoon_id'] . ")
+AND (`partner_id` = 0 OR `partner_id` = " . $persoon['persoon_id'] . ")
 ORDER BY achternaam ASC;" ;
 //Data uit db halen en in data-object laden
 $pulldownData = $db->query($sql);
@@ -55,7 +55,7 @@ $pulldownData = $db->query($sql);
 $pulldownOpties = array();
 while($row = $pulldownData->fetch_assoc()){
 	//voor elke auto-id wordt een key aangemaakt in de array, waar de samengestelde string met tekst als waarde in gezet wordt
-	$pulldownOpties[$row['persoon_auto_id']] = $row['persoon_id'] . ' - ' .$row['voornaam'] . ' ' . $row['achternaam'];
+	$pulldownOpties[$row['persoon_id']] = $row['persoon_id'] . ' - ' .$row['voornaam'] . ' ' . $row['achternaam'];
 }
 //de uiteindelijke array met auto-id's en teksten voor pulldown koppelen aan data-array voor template.
 $data['pulldownOptiesPersonen'] = $pulldownOpties;
